@@ -36,7 +36,7 @@ CLOUD_PROVIDER=aws
 # AWS Account Info
 AWS_ACCOUNT_ID=599943578793
 AWS_REGION=ap-south-1
-GITHUB_REPO=zversal-infra
+GITHUB_REPO=test-repo
 
 # Project Info
 PROJECT_NAME=zv-github-test
