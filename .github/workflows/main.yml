@@ -5,8 +5,8 @@ on:
 
 env:
   AWS_REGION: "ap-south-1"
-  LAMBDA_FUNCTION: "bash-runtime"
-  
+  LAMBDA_FUNCTION: "zv-github-test-runtime"
+
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read # This is required for actions/checkout
