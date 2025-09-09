@@ -1,0 +1,36 @@
+name: Test CICD Role Permissions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-permissions:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Configure AWS credentials using OIDC and hardcoded role ARN
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::599943578793:role/zversal-cicd-pipeline-role
+          aws-region: ap-south-1
+
+      # ✅ Allowed action: Get Lambda function
+      - name: Allowed Action - Get Lambda Function
+        run: |
+          echo "Trying to describe bash-runtime function..."
+          aws lambda get-function --function-name bash-runtime --region ap-south-1 || true
+
+      # ❌ Denied action: Delete Lambda function
+      - name: Denied Action - Delete Lambda Function
+        run: |
+          echo "Trying to delete bash-runtime function..."
+          set +e
+          aws lambda delete-function --function-name bash-runtime --region ap-south-1
+          echo "Exit code: $?"
