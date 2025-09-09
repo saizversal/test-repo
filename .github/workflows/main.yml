@@ -6,6 +6,10 @@ on:
 env:
   AWS_REGION: "ap-south-1"
   LAMBDA_FUNCTION: "bash-runtime"
+  
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
 
 jobs:
   test-lambda:
