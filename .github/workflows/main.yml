@@ -23,7 +23,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4.3.1
         with:
-          role-to-assume: arn:aws:iam::607122710341:role/zversal-cicd-pipeline-role
+          role-to-assume: arn:aws:iam::607122710341:role/app-server-cicd-pipeline-role
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ap-south-1
       # Hello from AWS: WhoAmI
