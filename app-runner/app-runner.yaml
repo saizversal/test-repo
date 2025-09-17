@@ -57,7 +57,7 @@ Resources:
         #   Value: !Ref GitBranch
         - Key: RepositoryName
           Value: !Ref RepositoryName
-      PermissionsBoundary: !Sub "arn:aws:iam::${AwsAccountId}:policy/zversal-lambda-permission-boundary-dev"
+      PermissionsBoundary: !Sub "arn:aws:iam::${AwsAccountId}:policy/zversal-lambda-permission-boundary-maxreach-dev"
       Policies:
         - PolicyName: !Join ["", [!Ref ProjectName, "-cicd-runner-permissions"]]
           PolicyDocument:

@@ -5,7 +5,7 @@ on:
 
 env:
   AWS_REGION: "ap-south-1"
-  LAMBDA_FUNCTION: "zv-github-test-runtime"
+  LAMBDA_FUNCTION: "test1-aws-sdk"
 
 permissions:
   id-token: write # This is required for requesting the JWT
@@ -23,7 +23,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4.3.1
         with:
-          role-to-assume: arn:aws:iam::599943578793:role/zv-github-test-cicd-pipeline-role
+          role-to-assume: arn:aws:iam::607122710341:role/zversal-cicd-pipeline-role
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ap-south-1
       # Hello from AWS: WhoAmI
